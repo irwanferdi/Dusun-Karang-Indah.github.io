@@ -1,0 +1,87 @@
+.Main-Container {
+    background-color: #ffffff;
+}
+
+.logo-nbar {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    width: 100px !important; /* Atur lebar sesuai kebutuhan */
+    height: 100px !important; /* Atur tinggi sesuai kebutuhan */
+}
+
+.logo-nbar img {
+    width: 80% !important;
+    max-height: 90px;
+}
+
+section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* Gaya untuk judul */
+.section-heading {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Gaya untuk swiper container */
+.swiper-container {
+    padding: 20px 0;
+}
+
+/* Gaya untuk card */
+.card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+}
+
+/* Gaya untuk gambar  */
+.card .icon-wrapper {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.card img {
+    width: 150px; /* Atur ukuran gambar */
+    height: 150px; /* Atur ukuran gambar */
+    border-radius: 50%; /* Agar gambar bulat (sesuaikan dengan ukuran) */
+    object-fit: cover; /* Memastikan gambar terlihat baik */
+}
+
+/* Gaya untuk aparatur*/
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+
+.card a:hover {
+    background-color: #e74c3c;
+}
+
+
+.footer-distributed iframe{
+    width: 280px;
+    height: 230px;
+}
+.map-caption {
+    background-color: #f5efef;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    height: 250px;
+    width: 280px;
+}

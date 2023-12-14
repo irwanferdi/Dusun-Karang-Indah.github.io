@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="about.css">
+        <link rel="stylesheet" href="navbar.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    </head> 
+    <style>
+        .atas {
+        display: flex;
+    }
+
+    .desa-info {
+        margin-top: 25px;
+        font-weight: bold;
+    }
+
+    .desa-info p {
+        color: white;
+    }
+
+    section {
+        background-color: white;
+    }
+
+    .logo-nbar img {
+        max-height: 90px;
+    }
+
+    .deskripsi {
+        margin-bottom: 50px;
+    }
+
+    .deskripsi p {
+        text-align: justify;
+    }
+
+    .section-heading {
+        margin-bottom: 0;
+        font-size: 1.5rem;
+    }
+
+    .clock-and-day {
+        text-align: right;
+        color: white;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .clock-box {
+        width: 120px;
+        /* Tambahkan lebar tetap */
+        text-align: center;
+    }
+
+    .clock-box,
+    .day-box {
+        background-color: #f5efef;
+        color: white;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+        font-size: 18px;
+    }
+
+    .Main-Container {
+        /* Tambahkan gaya ini untuk mencegah pergerakan kontainer */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer iframe {
+        float: right;
+        margin-left: 20px;
+        /* Add margin for better spacing */
+    }
+
+    .footer-distributed {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-distributed iframe {
+        width: 180px;
+        height: 200px;
+    }
+
+    .map-caption {
+        background-color: #f5efef;
+        border-radius: 5px;
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+        height: 250px;
+        width: 280px;
+    }
+
+        .diagram {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        
+        .card {
+            width: 30%;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            background-color: #f5efef;
+        }
+
+        .card li{
+            text-align: justify;
+        }
+
+        .icon-wrapper {
+            margin-bottom: 10px;
+        }
+
+        .apply-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .apply-button:hover {
+            background-color: #45a049;
+        }
+   
+    </style>
+    <body style="background-color: white;">
+        <div class="Main-Container">
+            <marquee behavior="scroll" direction="left" style="color: #0f0f0f; font-size: 24px; font-weight: bold; padding: 12px; background-color: rgb(243, 247, 244); text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); font-family: 'Arial', sans-serif;">
+                Selamat Datang di Dusun Karang Indah! Terimakasih atas kunjungan Anda.
+            </marquee>
+            <header>
+                <div class="atas">
+                    <a href="#" class="logo-nbar">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Lambang_Kabupaten_Lampung_Selatan.png" alt="Seal of Karanganyar Regency">
+                        <span class="psi"></span>
+                    </a>
+    
+                    <div class="desa-info">
+                        <p>Dusun Karang indah</p>
+                        <p>Kecamatan Jati Agung</p>
+                    </div>
+                </div>
+            
+                <ul class="menu-navbar">
+                  <li><a href="index.html" class="active">Home</a></li>
+                  <li><a href="Datastatistik.html">Data Statistik</a></li>
+                  <li><a href="article.html">Info Lowongan</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                </ul>
+              <!-- Tambahkan tampilan jam dan hari dalam kotak yang stylish -->
+            <div class="clock-and-day">
+                <div class="clock-box">
+                    <p id="clock"></p>
+                </div>
+                <div class="day-box">
+                    <p id="day"></p>
+                </div>
+            </div>
+        </header>
+
+        <!--javascript-->
+        <script src="js/navbar.js"></script>
+        <script>
+            function updateClock() {
+                var now = new Date();
+                var hours = now.getHours();
+                var minutes = now.getMinutes();
+                var seconds = now.getSeconds();
+                
+                // Format waktu menjadi HH:MM:SS
+                var formattedTime = hours.toString().padStart(2, '0') + ':' +
+                                    minutes.toString().padStart(2, '0') + ':' +
+                                    seconds.toString().padStart(2, '0') + '';
+                
+                // Perbarui elemen jam
+                document.getElementById('clock').textContent = formattedTime;
+
+                // Dapatkan hari saat ini dan format
+                var daysOfWeek = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+                var dayOfWeek = daysOfWeek[now.getDay()];
+
+                // Perbarui elemen hari
+                document.getElementById('day').textContent = dayOfWeek;
+            }
+
+            // Panggil fungsi updateClock setiap detik
+            setInterval(updateClock, 1000);
+
+            // Panggil fungsi sekali untuk mengatur nilai awal
+            updateClock();
+        </script>
+              <!--javascript-->
+              <script src="js/navbar.js"></script>
+
+        <section>
+                <div class="row">
+                    <h2 class="section-heading" align="center">Informasi Lowongan Pekerjaan</h2>
+                </div>
+            <div class="diagram">
+                        <div class="card">
+                            <div class="job-container">
+                                <div class="icon-wrapper">
+                                    <img src="data:image/png;base64,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">
+                                </div>
+                                <h3>Welder Truck</h3> 
+                                <p>Agung Logistics</p>
+                                <ul>
+                                    <li>1.Melakukan pengelasan terhadap car carrier</li>
+                                    <li>2.Melakukan perawatan secara berkala</li>
+                                    <li>3.Melakukan pemeriksaan rutin</li>
+                                </ul>
+                                <button class="apply-button" onclick="redirectToApplyPage('https://glints.com/id/opportunities/jobs/welder-truck/dbabc54c-4110-4087-8c2e-c61112e495c1/share/b4a403c0-7c4f-4608-857a-679659ae9f52?utm_medium=share&utm_campaign=marketplace')">Apply</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="job-container">
+                                <div class="icon-wrapper">
+                                    <img class="psy-img" src="https://images.glints.com/unsafe/160x0/glints-dashboard.s3.amazonaws.com/company-logo/7f24053e3cdee01498d3f10ef340dacb.jpg">
+                                </div>
+                                <h3>Sales Area Lampung</h3> 
+                                <p>PT Good Sale Tech<p>
+                                    <ul>
+                                        <li>1.Membantu dalam membuat materi penjualan untuk persiapan dan kesuksesan penjualan</li>
+                                        <li>2.Mengkoordinasikan penjadwalan dengan klien</li>
+                                        <li>3.Menangani pertanyaan dan masalah pelanggan</li>
+                                    </ul>
+                                <button class="apply-button" onclick="redirectToApplyPage('https://glints.com/id/opportunities/jobs/sales-area-lampung/1c2e5195-64cc-4a98-875b-ceca965e3288/share/f08f8a3f-79b2-42aa-bad1-3a20da80528b?utm_medium=share&utm_campaign=marketplace')">Apply</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="job-container">
+                                <div class="icon-wrapper">
+                                    <img class="psy-img" src="https://images.crunchbase.com/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/043437b1d9a9bc3c32fc">
+                                </div>
+                                <h3>Teknisi ATM/EDC</h3> 
+                                <p>PT Visionet Data Internasional</p>
+                                <p>Job Desc:</p>
+                                <ul>
+                                    <li>1.Menangani kebutuhan pelanggan di lokasi pelanggan untuk memenuhi SLA yang ditentukan.</li>
+                                    <li>2.Menganalisis masalah dengan akurat guna mencapai tingkat layanan maksimal terhadap pelanggan, termasuk Desktop, Laptop, Gadget, dan Basic Server.</li>
+                                    <li>3.Menentukan penggantian perangkat yang rusak.</li>
+                                </ul>
+                                <button class="apply-button" onclick="redirectToApplyPage('https://glints.com/id/opportunities/jobs/teknisi-atm-edc-lampung/15aae2c8-906e-427e-aac0-2819fc369188?utm_medium=share&utm_campaign=marketplace&shareId=f8010966-7377-4331-889d-4fa62d1bb25b')">Apply</button>
+                            </div>
+                        </div>
+                         <div class="card">
+                            <div class="job-container">
+                                <div class="icon-wrapper">
+                                    <img class="psy-img" src="data:image/png;base64,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">
+                                </div>
+                                <h3>Staff Administrasi</h3> 
+                                <p>PT. Pertamina</p>
+                                <ul>
+                                    <li>PT Pertamina (Persero) adalah Perusahaan BUMN yang bergerak di bidang energi dan penyumbang deviden terbesar di Indonesia. Memiliki bisnis dari hulu sampai hilir yang terintegrasi, mulai dari Eksplorasi dan Produksi, Pengolahan, Distribusi dan Pemasaran, yang berdasarkan tata nilai AKHLAK sebagai core values.</li>
+                                </ul>
+                                <button class="apply-button" onclick="redirectToApplyPage('https://g.co/kgs/xGmES2')">Apply</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="job-container">
+                                <div class="icon-wrapper">
+                                    <img class="psy-img" src="data:image/jpeg;base64,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">
+                                </div>
+                                <h3>Sales Executive Lampung Area</h3> 
+                                <p>Everseiko Group<p>
+                                    <ul>
+                                        <li>1.Menyusun rencana kunjungan (visit plan) bersama dengan sales manager setiap bulannya</li>
+                                        <li>2.Memastikan aktivitas promosi terlaksanakan dengan baik dan optimal</li>
+                                        <li>3.Mengkoordinasikan dengan pihak dealer terkait pemenuhan kebutuhan dan permintaan order customer</li>
+                                    </ul>
+                                <button class="apply-button" onclick="redirectToApplyPage('https://glints.com/id/opportunities/jobs/sales-executive-lampung-area/577bd42e-d05c-49ce-a169-362514bcaa3f?utm_medium=share&utm_campaign=marketplace')">Apply</button>   
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="job-container">
+                                <div class="icon-wrapper">
+                                    <img class="psy-img" src="data:image/png;base64,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">
+                                </div>
+                                <h3>Sales IT</h3> 
+                                <p>PT. Lintas Teknologi Semesta</p> 
+                                <ul>
+                                    <li>1.Mengembangkan strategi dan rencana pemasaran untuk mencapai produk.</li>
+                                    <li>2.Membangun potensi baru dan memelihara hubungan antar pelanggan.</li>
+                                    <li>3.Kirimkan proposal lamaran, melakukan pengenalan produk, dan mempresentasi produk</li>
+                                    <li>4.Menjaga hubungan baik dengan klien dan menawarkan solusi terbaik untuk masalah mereka.</li>
+                                </ul> 
+                                <button class="apply-button" onclick="redirectToApplyPage('https://glints.com/id/opportunities/jobs/sales-it/64f74aa0-9f54-42ef-804b-61654fa8550d?utm_medium=share&utm_campaign=marketplace')">Apply</button> 
+                            </div>
+            </div>
+        </section>
+
+        <script>
+            // Fungsi untuk mengarahkan pengguna ke tautan yang ditentukan
+            function redirectToApplyPage(link) {
+                window.location.href = link;
+            }
+        </script>
+
+        </div>
+        <!--ini footer-->
+        <footer class="footer-distributed">
+            <div class="footer-left">
+        
+                <p class="footer-links">
+                    <a href="index.html">Home</a>
+                    ·
+                    <a href="about.html">About Us</a>
+                    ·
+                    <a href="Datastatistik.html">Statistik</a>
+                    ·
+                    <a href="lowongan.html">Info</a>
+                </p>
+        
+                <p class="footer-company-name" style="color: white;">Copyright © 2023</p>
+        
+                <div class="footer-icons">
+                    <a href="https://www.facebook.com/Kota.Lampung.Selatan?mibextid=zLoPMf" target="_blank"><i class="bx bxl-facebook"></i></a>
+                    <a href="https://x.com/HumasKabLamSel?t=wABKuwAIJ3YtlZLeY-J-Jw&s=09" target="_blank"><i class="bx bxl-twitter"></i></a>
+                    <a href="https://instagram.com/jatiagung.lampungselatan?igshid=MzMyNGUyNmU2YQ==" target="_blank"><i class="bx bxl-instagram"></i></a>
+                </div>
+        
+            </div>
+            <div class="map-caption">
+                <p>Peta Desa</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.8207980878515!2d105.26913997482457!3d-5.290639653113836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40c42c0af3e761%3A0xa5f2b7bf24e2e886!2sJl.%20Raya%20Karang%20Indah%2C%20Karang%20Anyar%2C%20Kec.%20Jati%20Agung%2C%20Kabupaten%20Lampung%20Selatan%2C%20Lampung%2035362!5e0!3m2!1sen!2sid!4v1701343783384!5m2!1sen!2sid" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+        </footer>
+<!--akhir footer-->
+    </body>
+</html>

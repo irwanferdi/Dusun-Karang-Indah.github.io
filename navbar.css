@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Roboto+Slab:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'poppins';
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background: #d9d9d9;
+}
+
+header {
+  position: relative;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  padding: 28px 12px;
+  transition: all .50 ease;
+  height: 100px;
+  background: #3f7db6fa;
+}
+
+.logo-nbar {
+  display: flex;
+  align-items: center;
+  font-family: 'dela gothic one';
+  font-size: 1.5rem;
+  color: white;
+  max-height: 90px;
+}
+
+.psi {
+  font-family: 'noto serif korean';
+  font-size: 50px;
+}
+
+.menu-navbar {
+  display: flex;
+  color: white;
+}
+
+.menu-navbar a{
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding: 5px 0;
+  margin: 0px 20px;
+  transition: all .50s ease;
+  color: white;
+}
+
+.menu-navbar a:hover {
+  color: #3d0264;
+}
+
+.main-navbar {
+  display: flex;
+  align-items: center;
+}
+
+.main-navbar a{
+  margin-right: 5px;
+  margin-left: 10px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 400;
+  transition: all .50s ease;
+  border: 1px solid #4D9BE2FA;
+  background-color: #4D9BE2FA;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.main-navbar a:hover {
+  color: rgb(0, 0, 0);
+}
+
+.user i{
+  color: rgb(61, 61, 61);
+  font-size: 20px;
+  margin-right: 7px;
+}
+
+#menu-icon{
+  font-size: 35px;
+  color: white;
+  cursor: pointer;
+  z-index: 10001;
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .atas {
+    display: flex;
+  }
+  .logo-nbar {
+    text-align: center;
+    padding: 0;
+    margin: 0; /* Center the logo in mobile view */
+  }
+
+  .menu-navbar {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-left: 0; /* Hide the navigation menu on small screens initially */
+  }
+
+  .menu-navbar a {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .desa-info p {
+    font-size: 12px;
+  }
+
+  .deskripsi {
+    margin: 15px;
+  }
+
+  /* Show the menu when the "menu" button is clicked */
+  .menu-navbar.active {
+    display: flex;
+    flex-direction: column; /* Stack menu items vertically */
+    align-items: center; /* Center menu items */
+  }
+
+  /* Additional mobile-specific styles */
+  .footer-distributed iframe {
+    width: 100%; /* Make the map iframe full width on small screens */
+    height: 200px; /* Adjust height as needed */
+  }
+
+  .clock-and-day {
+    width: 80px;
+    height: 40px;
+    padding: 2px;
+  }
+
+  .clock-and-day p {
+    font-size: 10px;
+  }
+
+  .diagram .card {
+    width: 100%; /* Make the cards full width on small screens */
+  }
+}
+
+/* Media query for larger screens (min-width: 601px) */
+@media only screen and (min-width: 601px) {
+  .menu-navbar {
+    display: flex; /* Display the navigation menu for larger screens */
+  }
+
+  /* Additional desktop-specific styles */
+  .footer-distributed iframe {
+    width: 180px;
+    height: 200px;
+  }
+
+  .diagram .card {
+    width: 30%; /* Reset card width for larger screens */
+  }
+}

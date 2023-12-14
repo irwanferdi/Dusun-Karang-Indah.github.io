@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="datastas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Data Statistik Penduduk</title>
+</head>
+<style>
+    .nav-bar {
+        height: 100px;
+        padding: 10px;
+    }
+    .menu-navbar {
+        margin-top: 10px;
+    }
+    .section-heading {
+        font-weight: bold;
+        padding: 20px 0;
+    }
+    .atas {
+        display: flex;
+        margin-left: 2px;
+    }
+    .desa-info {
+        margin-top: 30px;
+        font-weight: bold;
+    }
+    .desa-info p {
+        line-height: 0.5;
+        color: white;
+        margin-top: 3px;
+    }
+    .logo-nbar {
+        height: auto;
+    }
+    .menu-navbar {
+        margin-top: 15px;
+    }
+    .section-heading {
+        font-weight: bold;
+    }
+    .clock-and-day {
+            text-align: right;
+            color: white;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .clock-box {
+            width: 120px; /* Tambahkan lebar tetap */
+            text-align: center;
+        }
+        .clock-box, .day-box {
+            background-color: #f5efef;
+            color: white;
+            padding: 10px;
+            height: 44px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 18px;
+ /* Pusatkan teks */
+        }
+        .Main-Container {
+            /* Tambahkan gaya ini untuk mencegah pergerakan kontainer */
+            display: flex;
+            flex-direction: column;
+        }
+        .footer iframe {
+        float: right;
+        margin-left: 20px; /* Add margin for better spacing */
+        }
+        .footer-distributed{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        }
+        .footer-distributed iframe{
+        border-radius: 10px;
+        }
+        .map-caption {
+        background-color: #f5efef;
+        text-align: center;
+        margin-top: 10px;
+        font-weight: bold;
+    } 
+</style>
+<body style="background-color: white;">
+
+    <div class="Main-Container">
+        <marquee behavior="scroll" direction="left" style="color: #0f0f0f; font-size: 24px; font-weight: bold; padding: 12px; background-color: rgb(243, 247, 244); text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); font-family: 'Arial', sans-serif;">
+            Selamat Datang di Dusun Karang Indah! Terimakasih atas kunjungan Anda.
+        </marquee>
+        <header class="nav-bar">
+            <div class="atas">
+                <a href="#" class="logo-nbar">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Lambang_Kabupaten_Lampung_Selatan.png" alt="Seal of Karanganyar Regency">
+                    <span class="psi"></span>
+                </a>
+
+                <div class="desa-info">
+                    <p>Desa Karang Anyar</p>
+                    <p>Kecamatan Jati Agung</p>
+                </div>
+            </div>
+
+            <ul class="menu-navbar">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="Datastatistik.html">Data Statistik</a></li>
+                <li><a href="lowongan.html">Info Lowongan</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+            <!-- Tambahkan tampilan jam dan hari dalam kotak yang stylish -->
+            <div class="clock-and-day">
+                <div class="clock-box">
+                    <p id="clock"></p>
+                </div>
+                <div class="day-box">
+                    <p id="day"></p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Kode yang ada pada halaman sisanya -->
+
+        <!--javascript-->
+        <script src="js/navbar.js"></script>
+        <script>
+            function updateClock() {
+                var now = new Date();
+                var hours = now.getHours();
+                var minutes = now.getMinutes();
+                var seconds = now.getSeconds();
+                
+                // Format waktu menjadi HH:MM:SS
+                var formattedTime = hours.toString().padStart(2, '0') + ':' +
+                                    minutes.toString().padStart(2, '0') + ':' +
+                                    seconds.toString().padStart(2, '0') + '';
+                
+                // Perbarui elemen jam
+                document.getElementById('clock').textContent = formattedTime;
+
+                // Dapatkan hari saat ini dan format
+                var daysOfWeek = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+                var dayOfWeek = daysOfWeek[now.getDay()];
+
+                // Perbarui elemen hari
+                document.getElementById('day').textContent = dayOfWeek;
+            }
+
+            // Panggil fungsi updateClock setiap detik
+            setInterval(updateClock, 1000);
+
+            // Panggil fungsi sekali untuk mengatur nilai awal
+            updateClock();
+        </script>
+
+        <!--javascript-->
+        <script src="js/navbar.js"></script>
+
+        <div class="container">
+            <h2 class="section-heading" align="left">Data Pekerjaan Penduduk</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Tabel kiri -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Pekerjaan</th>
+                                <th>Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>BELUM/TIDAK BEKERJA</td>
+                                <td>114</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>MENGURUS RUMAH TANGGA</td>
+                                <td>83</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>PELAJAR/MAHASISWA</td>
+                                <td>22</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Wiraswasta</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Karyawan Swasta</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>PETANI</td>
+                                <td>43</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Buruh Harian Lepas</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Sopir</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td> </td>
+                                <td>JUMLAH</td>
+                                <td>308</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <!-- Grafik -->
+                    <h2 class="mt-5 mb-3">Diagram Data Pekerjaan</h2>
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              // Dummy data
+              var data = {
+                labels: ["Belum Bekerja", "Mengurus Rumah Tangga", "Pelajar", "Wiraswasta", "Karyawan Swasta", "Buruh", "Petani", "Sopir"],
+                datasets: [
+                  {
+                    label: "Pekerjaan",
+                    data: [114, 83, 22, 20, 8, 43, 15, 3],
+                    backgroundColor: "rgba(75, 192, 192, 0.2)",
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    borderWidth: 1
+                  }
+                ]
+              };
+      
+              // Create chart
+              var ctx = document.getElementById("myChart").getContext("2d");
+              var myChart = new Chart(ctx, {
+                type: "bar",
+                data: data,
+                options: {
+                  scales: {
+                    y: {
+                      beginAtZero: true
+                    }
+                  }
+                }
+              });
+            });
+          </script>
+      
+
+    </div>
+
+    <!-- Bootstrap JS (optional, for certain components) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Footer -->
+    <footer class="footer-distributed">
+        <div class="footer-left">
+    
+            <p class="footer-links">
+                <a href="index.html">Home</a>
+                ·
+                <a href="about.html">About Us</a>
+                ·
+                <a href="Datastatistik.html">Statistik</a>
+                ·
+                <a href="lowongan.html">Info</a>
+            </p>
+    
+            <div class="footer-icons">
+                <a href="https://www.facebook.com/Kota.Lampung.Selatan?mibextid=zLoPMf" target="_blank"><i class="bx bxl-facebook"></i></a>
+                <a href="https://x.com/HumasKabLamSel?t=wABKuwAIJ3YtlZLeY-J-Jw&s=09" target="_blank"><i class="bx bxl-twitter"></i></a>
+                <a href="https://instagram.com/jatiagung.lampungselatan?igshid=MzMyNGUyNmU2YQ==" target="_blank"><i class="bx bxl-instagram"></i></a>
+            </div>
+            
+    
+        </div>
+        <div class="map-caption">
+            <p>Peta Desa</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.8207980878515!2d105.26913997482457!3d-5.290639653113836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40c42c0af3e761%3A0xa5f2b7bf24e2e886!2sJl.%20Raya%20Karang%20Indah%2C%20Karang%20Anyar%2C%20Kec.%20Jati%20Agung%2C%20Kabupaten%20Lampung%20Selatan%2C%20Lampung%2035362!5e0!3m2!1sen!2sid!4v1701343783384!5m2!1sen!2sid" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </footer>
+    <!-- Akhir footer -->
+
+</body>
+</html>
