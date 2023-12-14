@@ -100,14 +100,14 @@ header {
   display: none;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 430px) {
   .atas {
     display: flex;
   }
   .logo-nbar {
     text-align: center;
     padding: 0;
-    margin: 0; /* Center the logo in mobile view */
+    margin: 0; 
   }
 
   .menu-navbar {
@@ -118,12 +118,17 @@ header {
   }
 
   .menu-navbar a {
-    font-size: 12px;
+    font-size: 8px;
     text-align: center;
   }
 
+  .desa-info {
+    margin-top: 0;
+    font-weight: bold;
+  }
+
   .desa-info p {
-    font-size: 12px;
+    font-size: 8px;
   }
 
   .deskripsi {
@@ -155,6 +160,10 @@ header {
 
   .diagram .card {
     width: 100%; /* Make the cards full width on small screens */
+  }
+
+  .day-box {
+    display: none;
   }
 }
 
